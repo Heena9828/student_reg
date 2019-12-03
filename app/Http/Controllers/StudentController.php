@@ -92,7 +92,8 @@
             $path1 = $request->file('studentsxls')->store('temp');
             $path = storage_path('app') . '/' . $path1;
             Excel::import(new StudentsImport, $path);
-            return view('admin.multiple-students');
+            return redirect()->route('students.index')
+                    ->with('success', 'Import data successfully.');
         }
 
         public function show(Attendance $attendance)
@@ -102,7 +103,9 @@
 
         public function export()
         {
-            return Excel::download(new StudentsExport, 'students.csv');
+            $students = Student::with('classes', 'sections')->get();
+            $exportObj = new StudentsExport($students);
+            return Excel::download($exportObj, 'students.csv');
         }
 
     }
