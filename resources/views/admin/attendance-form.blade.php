@@ -13,9 +13,9 @@
             <div class="row">
                 <div class="card">
                     <div class="card-body" >
-                        <!--<form action="{{ route('attendances.index') }}" class="inline">-->
+                   
                         <div class="form-group row" style="margin-right: 1%;   width: 160%;">
-                            <label for="attendance_date" class="col-md-1">{{ __('Date') }}</label>
+                            <label for="attendance_date" class="col-md-1">Date:</label>
 
                             <div class="col-md-4" class="form-group"  >
                                 {!! Form::date('attendance_date', null, array('placeholder' => 'Date','class' => 'form-control', 'id' => 'attendance_date')) !!}
@@ -48,17 +48,19 @@
 
                         <div>
                             <div id="card-body"> 
-
                             </div>
                         </div> 
-
+                        
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                         <div class="form-group row">
                             <div class="col-md-9 offset-sm-3">
                                 <button type="button" name="save"  id="button"  class="btn btn-primary mr-2" onclick="click_on()"> Save</button>
 
                             </div>
                         </div>
-                        <!--</form>-->
 
                     </div>
                 </div>
@@ -90,7 +92,7 @@
                     {
 
                         $.each(res, function (key, value) {
-                            $("#card-body").append('<input type="checkbox"  name="arr_students" value="' + key + '">' + value + '<br>');
+                            $("#card-body").append('<div class="col-md-9 offset-sm-3"><input type="checkbox"  name="arr_students" value="' + key + '">' + value + '<br> </div>');
                         });
                     }
                 }
@@ -148,9 +150,7 @@
                 'section': section_id,
                 'attendance_date': attendance_date
             },
-        }).done(function (response) {
-//            console.log(response);
-        });
+        })
 
         window.location.href = "{{URL::to('attendances')}}";
     }

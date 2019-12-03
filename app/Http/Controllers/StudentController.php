@@ -7,6 +7,7 @@
     use App\Classes;
     use App\Section;
     use App\Imports\StudentsImport;
+    use App\Exports\StudentsExport;
     use Maatwebsite\Excel\Facades\Excel;
     use Maatwebsite\Excel\ExcelServiceProvider;
     use DB;
@@ -93,10 +94,15 @@
             Excel::import(new StudentsImport, $path);
             return view('admin.multiple-students');
         }
-        
-          public function show(Attendance $attendance)
+
+        public function show(Attendance $attendance)
         {
             //
+        }
+
+        public function export()
+        {
+            return Excel::download(new StudentsExport, 'students.csv');
         }
 
     }

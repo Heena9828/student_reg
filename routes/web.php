@@ -51,6 +51,10 @@
     Route::post('/attendance', 'AttendanceController@store');
 
     Route::get('getStudentByClass/{cid}/{sid}', 'AttendanceController@getStudents');
+    
+    
+    Route::get('export', 'StudentController@export')->name('export');
+
 
 
 

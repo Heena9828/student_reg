@@ -21,7 +21,10 @@
                     </div>
                     <br>
                     <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ action('StudentController@add_multi_students')}}"> Add Multiple Students</a>
+                       <a class="btn btn-primary" href="{{ route('export') }}">Export User Data</a>
+                    </div>
+                    <div class="pull-right">
+                        <a class="btn btn-primary" style="margin-right: 10px;" href="{{ action('StudentController@add_multi_students')}}"> Add Multiple Students</a>
                     </div>
                     <div class="pull-right" style="margin-right: 10px;">
                         <a class="btn btn-primary" href="{{ action('StudentController@create')}}"> Add Student</a>
