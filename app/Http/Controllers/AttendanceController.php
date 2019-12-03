@@ -73,6 +73,10 @@
                 ->get("section_name", "id");
             return response()->json_encode($sections);
         }
+        
+        
+        
+        
 
         public function getStudents($cid, $sid)
         {
